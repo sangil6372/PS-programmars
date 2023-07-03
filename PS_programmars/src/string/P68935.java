@@ -1,4 +1,4 @@
-package array;
+package strin;
 
 public class P68935 {
 
