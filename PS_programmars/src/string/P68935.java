@@ -1,4 +1,4 @@
-package strin;
+package string;
 
 public class P68935 {
 
