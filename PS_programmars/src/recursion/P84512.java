@@ -23,7 +23,7 @@ public class P84512 {
 	}
 
 //	특정 문자의 자릿수 가중치를 고려해서 값을 구하는 함수 
-	public static int getValueByDigitWeight(char vowel, int digit) {
+	public static int getValueByWeight(char vowel, int digit) {
 		int num = vowelMap.get(vowel); // vowel(모음)의 순번
 		return digitWeight[digit - 1] * (num - 1) + 1;	// 자릿수 가중치[자릿수 - 1] * (모음 순번 - 1) +1(다음 문자) 
 	}
@@ -32,11 +32,11 @@ public class P84512 {
 		int length = word.length(); // 입력받은 문자열 길이
 //		문자열 길이가 1이면 자릿수1 가중치을 고려해서 return 
 		if (length == 1) {
-			return getValueByDigitWeight(word.charAt(0), length);
+			return getValueByWeight(word.charAt(0), length);
 		}
 //		문자열 길이가 1보다 크면
 		return checkDictionary(word.substring(0, length - 1)) // 0~마지막 문자 전까지 sub String
-				+ getValueByDigitWeight(word.charAt(length - 1), length); // 마지막 문자의 순번과 순번에 따른 가중치를 곱한 값
+				+ getValueByWeight(word.charAt(length - 1), length); // 마지막 문자의 순번과 순번에 따른 가중치를 곱한 값
 //		마지막 문자를 뺀 나머지 문자열 check 하고 마지막 문자열 자릿수 가중치&순번 고려한 값 더하기  
 //		예시) 문자열이 AEIO라면 check(AEI) + 자릿수4가중치와  ;  		
 	}
